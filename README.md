@@ -4,7 +4,7 @@ Ein Tabellen-Widget, bei dem der **vertikale Abstand zwischen zwei Zeilen propor
 
 **Live-Demo:** https://futzi3000.github.io/gaptable/
 
-Es ist eine Web Component ohne Abhängigkeiten. Die Daten kommen live von [OpenLigaDB](https://www.openligadb.de).
+Es ist eine Web Component ohne Abhängigkeiten. Die Daten kommen live von [OpenLigaDB](https://www.openligadb.de). Sie werden von der Community gepflegt, die Zonen (Aufstieg, Abstieg usw.) sind im Widget hinterlegt.
 
 ## Einbinden
 
@@ -19,12 +19,23 @@ Es ist eine Web Component ohne Abhängigkeiten. Die Daten kommen live von [OpenL
 
 | Attribut  | Werte            | Default          | Bedeutung                                |
 |-----------|------------------|------------------|------------------------------------------|
-| `league`  | `bl1`, `bl2`     | `bl1`            | Liga                                     |
+| `league`  | siehe unten      | `bl1`            | Liga                                     |
 | `season`  | z. B. `2026`     | aktuelle Saison  | Startjahr der Saison                     |
 | `gap`     | Zahl ≥ 0         | `6`              | Pixel je Punkt Abstand (`0` = klassisch) |
 | `max-gap` | Zahl > 0         | `240`            | Obergrenze einer einzelnen Lücke in px   |
 | `theme`   | `dark`, `light`  | `dark`           | Farbschema                               |
 | `title`   | Text             | Liga + Saison    | Überschrift                              |
+
+### Ligen
+
+| Kürzel | Liga                           |
+|--------|--------------------------------|
+| `bl1`  | 1. Bundesliga                  |
+| `bl2`  | 2. Bundesliga                  |
+| `bl3`  | 3. Liga                        |
+| `ffb1` | Frauen-Bundesliga              |
+| `pl`   | Premier League                 |
+| `del`  | DEL (Eishockey)                |
 
 Alle Attribute lassen sich zur Laufzeit ändern, das Widget rendert dann neu.
 

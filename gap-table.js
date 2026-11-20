@@ -2,7 +2,7 @@
  * <gap-table> – Tabelle, deren Zeilenabstände proportional zum Punkteabstand sind.
  *
  * Attribute:
- *   league     bl1 | bl2                 (Default: bl1)
+ *   league     bl1 | bl2 | bl3 | ffb1 | pl | del   (Default: bl1)
  *   season     Startjahr der Saison       (Default: aktuelle Saison)
  *   gap        Pixel je Punkt Abstand     (Default: 6, 0 = klassische Tabelle)
  *   max-gap    Obergrenze je Lücke in px  (Default: 240)
@@ -32,6 +32,37 @@
         { from: 3, to: 3, cls: 'rel', label: 'Relegation' },
         { from: 16, to: 16, cls: 'rel', label: 'Relegation' },
         { from: 17, to: 18, cls: 'down', label: 'Abstieg' },
+      ],
+    },
+    bl3: {
+      name: '3. Liga',
+      zones: [
+        { from: 1, to: 2, cls: 'up', label: 'Aufstieg' },
+        { from: 3, to: 3, cls: 'rel', label: 'Relegation' },
+        { from: 17, to: 20, cls: 'down', label: 'Abstieg' },
+      ],
+    },
+    ffb1: {
+      name: 'Frauen-Bundesliga',
+      zones: [
+        { from: 1, to: 3, cls: 'cl', label: 'Champions League' },
+        { from: 13, to: 14, cls: 'down', label: 'Abstieg' },
+      ],
+    },
+    pl: {
+      name: 'Premier League',
+      zones: [
+        { from: 1, to: 4, cls: 'cl', label: 'Champions League' },
+        { from: 5, to: 5, cls: 'el', label: 'Europa League' },
+        { from: 18, to: 20, cls: 'down', label: 'Abstieg' },
+      ],
+    },
+    del: {
+      name: 'DEL',
+      zones: [
+        { from: 1, to: 6, cls: 'po', label: 'Playoffs' },
+        { from: 7, to: 10, cls: 'ppo', label: 'Pre-Playoffs' },
+        { from: 14, to: 14, cls: 'down', label: 'Abstieg' },
       ],
     },
   };
@@ -77,6 +108,8 @@
       --gt-up: #3fb67a;
       --gt-rel: #e3b341;
       --gt-down: #d64541;
+      --gt-po: #2f7cf6;
+      --gt-ppo: #7fb2ff;
       display: block;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       color: var(--gt-text);
@@ -117,6 +150,8 @@
     .up .accent { background: var(--gt-up); }
     .rel .accent { background: var(--gt-rel); }
     .down .accent { background: var(--gt-down); }
+    .po .accent { background: var(--gt-po); }
+    .ppo .accent { background: var(--gt-ppo); }
 
     /* Die eigentliche Idee: Leerraum ∝ Punkteabstand */
     .gap {
@@ -237,7 +272,7 @@
       const gap = this.gap;
       const maxGap = this.maxGap;
       let html = `<div class="card" part="card">
-        <div class="grid head"><span></span><span class="r">#</span><span></span><span>Verein</span><span class="r sp">Sp</span><span class="r">Tore</span><span class="r">Pkt</span></div>`;
+        <div class="grid head"><span></span><span class="r">#</span><span></span><span>Verein</span><span class="r sp">Sp</span><span class="r" title="Tordifferenz">+/−</span><span class="r">Pkt</span></div>`;
 
       rows.forEach((t, i) => {
         const pos = i + 1;

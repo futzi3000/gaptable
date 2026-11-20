@@ -20,11 +20,12 @@
       display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px;
       margin-bottom: 16px; font-size: 13px;
     }
-    .seg { display: inline-flex; border: 1px solid #333; border-radius: 8px; overflow: hidden; }
+    .seg { display: inline-flex; flex-wrap: wrap; gap: 4px; }
     .seg button {
-      background: none; border: 0; color: #aaa; padding: 7px 12px; font: inherit; cursor: pointer;
+      background: none; border: 1px solid #333; border-radius: 8px;
+      color: #aaa; padding: 7px 12px; font: inherit; cursor: pointer;
     }
-    .seg button[aria-pressed="true"] { background: #2a2a2a; color: #fff; }
+    .seg button[aria-pressed="true"] { background: #2a2a2a; border-color: #555; color: #fff; }
     label { display: inline-flex; align-items: center; gap: 8px; }
     input[type="range"] { width: 140px; }
     output { min-width: 64px; color: #fff; font-variant-numeric: tabular-nums; }
@@ -37,8 +38,12 @@
 
     <div class="controls">
       <div class="seg" role="group" aria-label="Liga">
-        <button data-league="bl1" aria-pressed="true">1. Bundesliga</button>
-        <button data-league="bl2" aria-pressed="false">2. Bundesliga</button>
+        <button data-league="bl1" aria-pressed="true">1. BL</button>
+        <button data-league="bl2" aria-pressed="false">2. BL</button>
+        <button data-league="bl3" aria-pressed="false">3. Liga</button>
+        <button data-league="ffb1" aria-pressed="false">Frauen-BL</button>
+        <button data-league="pl" aria-pressed="false">Premier League</button>
+        <button data-league="del" aria-pressed="false">DEL</button>
       </div>
       <label>Lücke
         <input id="gap" type="range" min="0" max="20" step="1" value="6">
