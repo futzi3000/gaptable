@@ -2,6 +2,8 @@
 
 Ein Tabellen-Widget, bei dem der **vertikale Abstand zwischen zwei Zeilen proportional zum Punkteabstand** ist. Teams mit gleicher Punktzahl stehen direkt untereinander, große Rückstände werden als Leerraum sichtbar.
 
+**Live-Demo:** https://futzi3000.github.io/gaptable/
+
 Es ist eine Web Component ohne Abhängigkeiten. Die Daten kommen live von [OpenLigaDB](https://www.openligadb.de).
 
 ## Einbinden
